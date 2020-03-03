@@ -7,11 +7,15 @@ const TaskList = () => {
   const { tasks } = useContext(TaskListContext);
   return (
     <div>
-      <ul className='list'>
-        {tasks.map((task, index) => {
-          return <Task key={index} task={task} />;
-        })}
-      </ul>
+      {tasks.length ? (
+        <ul className='list'>
+          {tasks.map((task, index) => {
+            return <Task key={index} task={task} />;
+          })}
+        </ul>
+      ) : (
+        <div className='no-tasks'>No Tasks</div>
+      )}
     </div>
   );
 };
